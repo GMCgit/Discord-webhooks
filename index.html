@@ -7,11 +7,11 @@
   <body>
     <input id="user" placeholder="username" />
     <input id="msg" placeholder="message" />
-    <button onclick="sendMessage()">Send</button>
+    <button onclick="sendMessages()">Send</button>
   </body>
 
   <script>
-    function sendMessage() {
+    function sendMessages() {
       var request = new XMLHttpRequest();
       request.open(
         "POST",
