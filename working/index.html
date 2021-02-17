@@ -1,0 +1,36 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Discord Webhook Tutorial</title>
+  </head>
+  <body>
+    <input id="user" placeholder="username" />
+    <input id="msg" placeholder="message" />
+    <button onclick="sendMessages()">Send</button>
+  </body>
+
+  <script>
+    function sendMessages() {
+      if (sessionStorage.getItem("Works") == true) {
+        var request = new XMLHttpRequest();
+        request.open(
+          "POST",
+          "https://discord.com/api/webhooks/811200369883480064/wmUxRqxSW11lYHEzt6w609CSay34yhoMOwmwdGH8ftySTJj7HtxOpo0XS07zBZdem6xa"
+        );
+
+        request.setRequestHeader("Content-type", "application/json");
+
+        var params = {
+          username: document.getElementById("user").value,
+          avatar_url: "",
+          content: document.getElementById("msg").value,
+        };
+
+        request.send(JSON.stringify(params));
+      } else {
+        window.location = "https://previews.123rf.com/images/argus456/argus4561605/argus456160536052/57445013-no-stupid-people-3d-rendering-a-red-shiny-sticker.jpg"
+      }
+    }
+  </script>
+</html>

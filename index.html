@@ -1,32 +1,25 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Discord Webhook Tutorial</title>
+    <title>Document</title>
   </head>
   <body>
-    <input id="user" placeholder="username" />
-    <input id="msg" placeholder="message" />
-    <button onclick="sendMessages()">Send</button>
+    <input placeholder="Kod" id="test"><button onclick="submit()">Submit code</button>
+    <script src="./index.js"></script>
+    <script>
+      console.log("Maybe check some files for the command");
+      function submit() {
+        if (sessionStorage.getItem("code") == document.getElementById("test").value) {
+          sessionStorage.setItem("Works", true)
+          window.location = "./working/index.html"
+        } else {
+          sessionStorage.clear()
+          window.location = "https://previews.123rf.com/images/argus456/argus4561605/argus456160536052/57445013-no-stupid-people-3d-rendering-a-red-shiny-sticker.jpg"
+        }
+      }
+    </script>
   </body>
-
-  <script>
-    function sendMessages() {
-      var request = new XMLHttpRequest();
-      request.open(
-        "POST",
-        "https://discord.com/api/webhooks/811200369883480064/wmUxRqxSW11lYHEzt6w609CSay34yhoMOwmwdGH8ftySTJj7HtxOpo0XS07zBZdem6xa"
-      );
-
-      request.setRequestHeader("Content-type", "application/json");
-
-      var params = {
-        username: document.getElementById("user").value,
-        avatar_url: "",
-        content: document.getElementById("msg").value,
-      };
-
-      request.send(JSON.stringify(params));
-    }
-  </script>
 </html>
